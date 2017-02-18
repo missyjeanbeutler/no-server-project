@@ -8,6 +8,7 @@ this.getTrailElevation = (trailPolyline, sampNum) => {
         return response.data.results;
     })
     .then(response => {
+        console.log(response.status + ' status')
         var elArr = [];
         for(var i = 0; i < response.length; i++) {
             elArr.push(response[i].elevation)
@@ -15,6 +16,13 @@ this.getTrailElevation = (trailPolyline, sampNum) => {
          return elArr;
     })
 }
+
+
+
+
+
+
+
 
 
 })

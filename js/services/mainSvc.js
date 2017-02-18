@@ -1,11 +1,15 @@
-angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elevationSvc){
+angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elevationSvc, $q){
     
 
     let data;
     this.getTrail = getTrail;    
+    this.returnElevation = returnElevation;
+
 
 
     // -------------------- Get Full Data Array ----------------------//
+
+
 
     getAllTrailsData().then(response => {
         data = response; 
@@ -33,27 +37,62 @@ angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elev
         })
     }
 
-    // -------------------- Get polyline/elevation and return full trail object with all info ----------------------//
-    
 
+
+    // -------------------- Get polyline/elevation and return full trail object with all info ----------------------//
+
+
+    
     function getTrail(trailNumber) {
-        var index = -1;
+        let deferred = $q.defer();
+        let index = getIndex(trailNumber);
+        let polyline = '';
+        if (data[index].trailCoord.length < 500) {
+            polyline = polylineSvc.createEncodings(data[index].trailCoord);
+        } else if (data[index].trailCoord.length < 640) {                           // take out every other third element
+            for(var k = 1; k < data[index].trailCoord.length; k += 3) {
+                data[index].trailCoord.splice(k, 1)
+            }
+            polyline = polylineSvc.createEncodings(data[index].trailCoord);            
+        } else if (data[index].trailCoord.length < 990) {                           // take out every other second element
+            for(var g = 1; g < data[index].trailCoord.length; g += 2) {
+                data[index].trailCoord.splice(g, 1)
+            }
+            polyline = polylineSvc.createEncodings(data[index].trailCoord); 
+        } else {                                                                    // make it fit 499
+            let divideNum = Math.ceil(data[index].trailCoord.length/499);
+            for(var g = 1; g < data[index].trailCoord.length; g++) {
+                data[index].trailCoord.splice(g, divideNum)
+            }
+            polyline = polylineSvc.createEncodings(data[index].trailCoord);
+        }
+        returnElevation(polyline, index).then(response => {
+            return deferred.resolve(response);
+        })
+        return deferred.promise;
+    }
+
+
+    function getIndex(trailNumber) {
+        let index = -1;
         for (var i = 0; i < data.length; i++) {
             if (data[i].trailNum === trailNumber) {
                 index = i;
             } 
-        }
-
-        return polylineSvc.createEncodings(data[i].trailCoord)
-        .then(response => {
-            return elevationSvc.getTrailElevation(response, data[i].length);
-        })
-        .then(response => {
-            data[i].elevation = response;
-            return data[i];
-        })
-        
+        } 
+        return index;     
     }
+
+
+    function returnElevation(polyline, index) {
+        return elevationSvc.getTrailElevation(polyline, data[index].trailCoord.length)
+        .then(response => {
+            data[index].elevation = response;
+            return data[index];
+        })
+    }
+
+
 
 
 

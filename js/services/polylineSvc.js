@@ -71,4 +71,7 @@ angular.module('trailsApp').service('polylineSvc', function ($http) {
         return fixedLatLong;
     };
 
+
+
+
 })

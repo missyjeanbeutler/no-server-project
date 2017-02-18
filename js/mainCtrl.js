@@ -5,14 +5,18 @@ angular.module('trailsApp').controller('mainCtrl', function($scope, mainSvc){
 
 $scope.getTrail = (numOfTrail) => {
     mainSvc.getTrail(numOfTrail).then(response => {
+        console.log(response)
         $scope.trail = response;
     })
 }
 
-$scope.getTrail(2040);
+
+
+
+
 
     
 
 
-    
+
 })
