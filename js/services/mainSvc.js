@@ -1,7 +1,7 @@
 angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elevationSvc, $q){
     
-
     let data;
+    this.data = data;
     this.getTrail = getTrail;    
     this.returnElevation = returnElevation;
 
