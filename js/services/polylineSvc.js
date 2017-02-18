@@ -22,7 +22,7 @@ angular.module('trailsApp').service('polylineSvc', function ($http) {
         encoded_points += encodePoint(plat, plng, coords[0][0], coords[0][1]);
 
         //----------Finished Polyline
-        console.log(encoded_points)
+        
         return encoded_points;
     }
 

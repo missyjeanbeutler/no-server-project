@@ -1,10 +1,10 @@
 angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elevationSvc, $q){
     
-    let data;
-    this.data = data;
-    this.getTrail = getTrail;    
-    this.returnElevation = returnElevation;
 
+    let data;
+
+
+    this.getTrail = getTrail;    
 
 
     // -------------------- Get Full Data Array ----------------------//
@@ -91,15 +91,5 @@ angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elev
             return data[index];
         })
     }
-
-
-
-
-
-
-
-
-
-
 
 })
