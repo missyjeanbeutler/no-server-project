@@ -1,18 +1,22 @@
-angular.module('trailsApp').controller('trailData', function ($scope, mainSvc) {
+angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $stateParams) {
 
 
     //------------- get single trail object -----------------//
 
-    $scope.trail;
+
     
-    $scope.getTrail = (numOfTrail) => {
-        mainSvc.getTrail(numOfTrail).then(response => {
-            console.log(response)
+    getTrail($stateParams.id)
+
+    function getTrail(num) {
+        mainSvc.getTrail(num).then(response => {
             $scope.trail = response;
+            elevationChart($scope.trail.elevation)
         })
     }
 
-    var elevation = $scope.trail.elevation;
+    
+
+    function elevationChart(elevation) {
 
     var ctx = document.getElementById('elevationChart');
     var myChart = new Chart(ctx, {
@@ -37,6 +41,7 @@ angular.module('trailsApp').controller('trailData', function ($scope, mainSvc) {
         }
     });
 
+    }
 
 
 
