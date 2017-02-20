@@ -1,0 +1,162 @@
+.trail-listing-container {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient( 
+        rgba(0, 0, 0, 0.4), 
+        rgba(0, 0, 0, 0.4)), 
+        url('../../img/mjp-4.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+.trail-listing-container > h1 {
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.trail-container {
+    height: 55%;
+    -webkit-column-count: 1; /* Chrome, Safari, Opera */
+    -moz-column-count: 1; /* Firefox */
+    column-count: 1;
+    overflow: scroll;
+    padding: 20px 30px;
+    margin: 20px;
+    border: 1px solid white;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-bar {
+    width: 350px;
+    height: 30px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.search-bar:focus {
+    outline: none;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #020c15;
+    color: white;
+    letter-spacing: 1px;
+    padding: 8px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    min-width: 160px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #0f2833
+}
+
+
+
+.trail-list {
+    text-align: left;
+}
+
+.side-scroll {
+    display: flex;
+}
+
+.side-scroll > h3 {
+    margin: 0 30px;
+    padding-top: 2px;
+}
+
+.left-scroll-arrow {
+    height: 15px;
+    width: 15px;
+    transform: rotate(90deg);
+}
+
+.right-scroll-arrow {
+    height: 15px;
+    width: 15px;
+    transform: rotate(270deg);
+}
+
+@media(min-width: 640px) {
+    .search-container {
+    display: flex;
+    margin-top: 30px;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30px;    
+}
+
+.trail-container {
+    height: 60%;
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    padding: 40px;
+    margin: 30px;
+}
+
+.search-bar {
+    margin-right: 30px;
+    
+}
+.trail-listing-container {
+    border: 10px solid white;
+    width: 100%;
+    height: 100vh;
+}
+
+.trail-listing-container > h1 {
+    margin-bottom: 30px;
+    margin-top: 0px;
+}
+
+
+}

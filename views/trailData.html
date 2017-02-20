@@ -1,0 +1,22 @@
+<div class="main-data-container">
+    <div class="all-the-stuff">
+        <img class="exit" src="../img/letter-x.svg" alt="exit window" ui-sref='trailListing'>
+    <h1>{{trail.trailName}}</h1>
+    <div class="long-line"></div>
+    <div class="data-container">
+        <h2><strong>LENGTH:</strong> {{trail.trailGIS}} MILES</h2>
+        <h2><strong>TOTAL ELEVATION CHANGE:</strong> {{elevationChange}} FEET</h2>
+        <h2><strong>AVERAGE PERCENT INCLINE:</strong> {{ratio}}</h2>
+        <h2><strong>TRAIL HEAD:</strong> {{latHead}}, {{longHead}}</h2>
+        <h2><strong>TRAIL END:</strong> {{latEnd}}, {{longEnd}}</h2>
+    </div>
+    </div>
+    <div class="crappy-chart">
+    <div class="container">
+        <h2><strong>ELEVATION SAMPLE</strong></h2>
+        <div class="chart">
+            <canvas id="elevationChart"></canvas>
+        </div>
+    </div>
+    </div>
+</div>
