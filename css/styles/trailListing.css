@@ -50,7 +50,7 @@
 
 /* Style The Dropdown Button */
 .dropbtn {
-    background-color: #172230;
+    background-color: #020c15;
     color: white;
     letter-spacing: 1px;
     padding: 8px;
@@ -95,7 +95,7 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-    background-color: #366074;
+    background-color: #0f2833
 }
 
 
