@@ -74,7 +74,7 @@
     height: 180px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 50px;
+    margin-bottom: -48px;
 }
 
 .choose-button {
@@ -89,7 +89,7 @@
     .choose-trail-container {
         border: 10px solid white;
         width: 100%;
-    height: 100vh;
+        height: 100vh;
     }
     .long-line {
     width: 235px; 
