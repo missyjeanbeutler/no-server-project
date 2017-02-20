@@ -11,7 +11,6 @@ angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $
     function getTrail(num) {
         mainSvc.getTrail(num).then(response => {
             $scope.trail = response;
-            console.log(response.elevation)
             var a = response.elevation.map((a) => {
                 let i = 0;
                 if(a > i) i = a;
@@ -22,9 +21,11 @@ angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $
                 if(a < i) i = a;
                 return i;
             })
-            $scope.elevationChange = Math.max(a[0]) - Math.min(b[0]);
+            $scope.elevationChange = Math.round(Math.max(a[0]) - Math.min(b[0])*100)/100;
             var distInFeet = response.trailGIS * 5280;
-            $scope.ratio = Math.asin(distInFeet/$scope.elevationChange)
+            var rat = Math.asin($scope.elevationChange/distInFeet);
+            if(rat === NaN) rat = Math.asin(distInFeet/$scope.elevationChange)
+            $scope.ratio = Math.round((rat * 100)*10000)/10000;
             $scope.latHead = response.trailHead[1] 
             $scope.longHead = response.trailHead[0];
             $scope.latEnd = response.trailEnd[1] 
