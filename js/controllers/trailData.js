@@ -10,38 +10,58 @@ angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $
     function getTrail(num) {
         mainSvc.getTrail(num).then(response => {
             $scope.trail = response;
-            elevationChart($scope.trail.elevation)
+            var distInFeet = response.trailGIS * 5280;
+            console.log(distInFeet)
+            console.log($scope.trail.elevation.length)
+            
         })
     }
 
     
 
-    function elevationChart(elevation) {
+        setTimeout(function() {
+            var ctx = document.getElementById('elevationChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
 
-    var ctx = document.getElementById('elevationChart');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            elements: {
-                point: {
-                    radius: 0
+                options: {
+                    legend: {
+                        display: false,
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    elements: {
+                        point: {
+                            radius: 0
+                        }
+                    },
+                scales: {
+                    xAxes: [{
+                        display: false,
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            tickMarkLength: 0,
+                        },
+                        ticks: {
+                            padding: 15,
+                        }
+                    }],
                 }
-            }
-        },
-        data: {
-            // labels: reso,
-            datasets: [{
-                //   label: 'elevation',
-                data: elevation,
-                backgroundColor: "rgba(15,150,255,0.4)",
-            }]
-        }
-    });
+                },
+                data: {
+                    labels: $scope.trail.elevation,
+                    datasets: [{
+                        data: $scope.trail.elevation,
+                        backgroundColor: "#222",
+                    }]
+                }
+            });
 
-    }
+
+
+        }, 500);
+    
 
 
 

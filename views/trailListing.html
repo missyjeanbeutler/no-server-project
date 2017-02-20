@@ -1,16 +1,32 @@
-This is the trail listing
-
-<input type="text" ng-model='numOfTrail'>
-        <button ui-sref='trailData({id: numOfTrail})'></button>
-
-
-<div ng-repeat='trail in trails'>Trails</div>
-{{trail.trailName}}
-{{trail.trailName}}
-{{trail.trailName}}
-{{trail.trailName}}
-{{trail.trailName}}
-{{trail.trailName}}
-{{trail.trailName}}
-{{trail.trailName}}
-{{trail.trailName}}
+<div class="trail-listing-container">
+    <h1>UTAH TRAILS</h1>
+    <div class="long-line"></div>
+    <div class="search-container">
+        <input class='search-bar' type="text" placeholder="SEARCH BY NAME..." ng-model='searchName'>
+        <div class="dropdown">
+            <button class="dropbtn">FILTER BY...</button>
+            <div class="dropdown-content">
+                <a ng-click='distanceLongShort()'>DISTANCE LONG - SHORT</a>
+                <a ng-click='distanceShortLong()'>DISTANCE SHORT - LONG</a>
+            </div>
+        </div>
+    </div>
+    <div class="trail-container">
+        <div class="list" ng-repeat='trail in trails | filter: searchName'>
+            <a class="trail-list" ui-sref='trailData({id: trail.trailNum})'>{{trail.trailName}}</a>
+        </div>
+    </div>
+    <div class="side-scroll">
+        <div class='left-scroll-div' ui-sref='chooseTrail'>
+            <img class='left-scroll-arrow' src="../img/down-arrow.svg" alt="scroll arrow">
+            <img class='left-scroll-arrow' src="../img/down-arrow.svg" alt="scroll arrow">
+            <img class='left-scroll-arrow' src="../img/down-arrow.svg" alt="scroll arrow">
+        </div>
+        <h3>SCROLL</h3>
+        <div class='right-scroll-div' ui-sref='chooseTrail'>
+            <img class='right-scroll-arrow' src="../img/down-arrow.svg" alt="scroll arrow">
+            <img class='right-scroll-arrow' src="../img/down-arrow.svg" alt="scroll arrow">
+            <img class='right-scroll-arrow' src="../img/down-arrow.svg" alt="scroll arrow">
+        </div>
+    </div>
+</div>

@@ -19,10 +19,8 @@ angular.module('trailsApp').service('polylineSvc', function ($http) {
             plat = lat;
             plng = lng;
         }
-        encoded_points += encodePoint(plat, plng, coords[0][0], coords[0][1]);
 
         //----------Finished Polyline
-        console.log(encoded_points)
         return encoded_points;
     }
 
@@ -69,6 +67,7 @@ angular.module('trailsApp').service('polylineSvc', function ($http) {
         for (var d = 0; d < cordArr.length; d++) {
             fixedLatLong.push([cordArr[d][1], cordArr[d][0]])
         }
+        
         return fixedLatLong;
     };
 

@@ -3,7 +3,22 @@ angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elev
     let data;
 
     this.getTrail = getTrail;    
+    
+    this.giveData = giveData;
 
+    function giveData() {
+        var miniData = [];
+        for(var i = 0; i < data.length; i++){
+            miniData.push(
+            {
+                trailNum: data[i].trailNum,
+                trailName: data[i].trailName,
+                trailGIS: data[i].trailGIS
+            })
+            
+        }
+        return miniData;
+    }
 
 
 

@@ -7,7 +7,6 @@ angular.module('trailsApp', ['ui.router'])
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: '../views/home.html',
             })
             .state('chooseTrail', {
                 url: '/chooseTrail',

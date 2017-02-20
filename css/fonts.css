@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Playfair+Display:700,900');
+
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    color: white;
+    font-size: 4rem;
+    letter-spacing: 6px;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    line-height: 23px;
+}
+
+h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    font-weight: 400;
+}
