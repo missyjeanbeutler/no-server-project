@@ -1,13 +1,20 @@
+<div class="main-data-container">
+    <h1>{{trail.trailName}}</h1>
+    <div class="long-line"></div>
+    <div class="data-container">
+        <h2><strong>LENGTH:</strong> {{trail.trailGIS}} MILES</h2>
+        <h2><strong>TOTAL ELEVATION CHANGE:</strong> {{elevationChange}} FEET</h2>
+        <h2><strong>AVERAGE PERCENT INCLINE:</strong> {{ratio}}</h2>
+        <h2><strong>TRAIL HEAD:</strong> {{latHead}}, {{longHead}}</h2>
+        <h2><strong>TRAIL END:</strong> {{latEnd}}, {{longEnd}}</h2>
 
 
-
-
-        <div>{{trail.trailName}}</div>
-
-
-<div class="container">
-    <h2>Elevation Sample</h2>
-    <div class="chart">
-        <canvas id="elevationChart"></canvas>
+        
+    </div>
+    <div class="container">
+        <h2>Elevation Sample</h2>
+        <div class="chart">
+            <canvas id="elevationChart"></canvas>
+        </div>
     </div>
 </div>

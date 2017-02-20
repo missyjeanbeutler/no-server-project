@@ -56,12 +56,12 @@ angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elev
 
     // -------------------- Get polyline/elevation and return full trail object with all info ----------------------//
 
-
+    
+    this.polyline = '';
     
     function getTrail(trailNumber) {
         let deferred = $q.defer();
         let index = getIndex(trailNumber);
-        let polyline = '';
         if (data[index].trailCoord.length < 500) {
             polyline = polylineSvc.createEncodings(data[index].trailCoord);
         } else if (data[index].trailCoord.length < 640) {                           // take out every other third element
@@ -81,12 +81,14 @@ angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elev
             }
             polyline = polylineSvc.createEncodings(data[index].trailCoord);
         }
+        
+
         returnElevation(polyline, index).then(response => {
             return deferred.resolve(response);
         })
+        
         return deferred.promise;
     }
-
 
     function getIndex(trailNumber) {
         let index = -1;
@@ -107,7 +109,7 @@ angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elev
         })
     }
 
-
+    
 
 
 
