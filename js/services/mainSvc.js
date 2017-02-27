@@ -25,7 +25,6 @@ angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elev
     // -------------------- Get Full Data Array ----------------------//
 
 
-
     getAllTrailsData().then(response => {
         data = response; 
         return data;
@@ -60,6 +59,8 @@ angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elev
     this.polyline = '';
     
     function getTrail(trailNumber) {
+    console.log('step 1-trail')
+        
         let deferred = $q.defer();
         let index = getIndex(trailNumber);
         if (data[index].trailCoord.length < 500) {
@@ -81,7 +82,6 @@ angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elev
             }
             polyline = polylineSvc.createEncodings(data[index].trailCoord);
         }
-        
 
         returnElevation(polyline, index).then(response => {
             return deferred.resolve(response);
@@ -97,7 +97,7 @@ angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elev
                 index = i;
             } 
         } 
-        return index;     
+        return index;   
     }
 
 
@@ -108,15 +108,6 @@ angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elev
             return data[index];
         })
     }
-
     
-
-
-
-
-
-
-
-
 
 })

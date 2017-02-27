@@ -2,6 +2,8 @@ angular.module('trailsApp').service('polylineSvc', function ($http) {
 
     
     this.createEncodings = (input) => {
+            console.log('step 3-trail')
+
         let coords = switchLatLong(input)
         var i = 0;
 

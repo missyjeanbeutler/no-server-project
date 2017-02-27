@@ -6,12 +6,10 @@ angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $
 
 
 
-    getTrail($stateParams.id)    
 
-    function getTrail(num) {
-        mainSvc.getTrail(num).then(response => {
+        mainSvc.getTrail($stateParams.id).then(response => {
+            console.log(response)
             $scope.trail = response;
-            console.log(response.elevation)
             var elevationArr = response.elevation.slice(0);
             var sorted = elevationArr.sort((a, b) => {
                 return b - a;
@@ -28,7 +26,6 @@ angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $
             $scope.longEnd = response.trailEnd[0];
             
         })
-    }
 
     
 
@@ -72,11 +69,10 @@ angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $
                     }]
                 }
             });
-
-
-
+            
         }, 500);
     
+
 
 
 
