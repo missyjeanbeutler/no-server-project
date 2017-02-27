@@ -1,9 +1,7 @@
 angular.module('trailsApp').service('elevationSvc', function ($http){
 
-
-
 this.getTrailElevation = (trailPolyline, sampNum) => {
-    return $http.get('https://maps.googleapis.com/maps/api/elevation/json?path=enc:'+ trailPolyline + '&samples=' + sampNum + '&key=AIzaSyD7_M7I9E7xdac8wFwj2-ttWD02eDMwOLQ')
+    return $http.get('https://maps.googleapis.com/maps/api/elevation/json?path=enc:'+ trailPolyline + '&samples=' + sampNum + '&key=' + apikey)
     .then(response => {
         if(response.data.status !== 'OK') return 'Error' + response.data.status;
         return response.data.results;

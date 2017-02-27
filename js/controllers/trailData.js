@@ -1,4 +1,4 @@
-angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $stateParams, mapSvc) {
+angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $stateParams) {
 
 
     //------------- get single trail object -----------------//
@@ -8,7 +8,7 @@ angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $
 
 
         mainSvc.getTrail($stateParams.id).then(response => {
-            console.log(response)
+            
             $scope.trail = response;
             var elevationArr = response.elevation.slice(0);
             var sorted = elevationArr.sort((a, b) => {

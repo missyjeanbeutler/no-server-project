@@ -59,7 +59,6 @@ angular.module('trailsApp').service('mainSvc', function($http, polylineSvc, elev
     this.polyline = '';
     
     function getTrail(trailNumber) {
-    console.log('step 1-trail')
         
         let deferred = $q.defer();
         let index = getIndex(trailNumber);
