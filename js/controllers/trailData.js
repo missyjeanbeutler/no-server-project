@@ -7,7 +7,7 @@ angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $
 
 
 
-        mainSvc.getTrail($stateParams.id).then(response => {
+        mainSvc.doAllTheThings($stateParams.id).then(response => {
             
             $scope.trail = response;
             var elevationArr = response.elevation.slice(0);
@@ -24,12 +24,12 @@ angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $
             $scope.longHead = response.trailHead[0];
             $scope.latEnd = response.trailEnd[1] 
             $scope.longEnd = response.trailEnd[0];
-            
+            makeChart();
         })
 
     
 
-        setTimeout(function() {
+        function makeChart() {
             var ctx = document.getElementById('elevationChart').getContext('2d');          
             var myChart = new Chart(ctx, {
                 type: 'line',
@@ -70,7 +70,7 @@ angular.module('trailsApp').controller('trailData', function ($scope, mainSvc, $
                 }
             });
             
-        }, 500);
+        };
     
 
 

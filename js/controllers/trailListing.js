@@ -1,8 +1,18 @@
 angular.module('trailsApp').controller('trailListing', function($scope, mainSvc){
 
-
+//hide loading gif
 function getTrailData() {
-    $scope.trails = mainSvc.giveData();
+    //show loading gif
+    if(mainSvc.publicData) {
+        $scope.trails = mainSvc.smallData()
+        //hide loading gif
+    } else {
+        mainSvc.getJSON().then(response => {
+            $scope.trails = mainSvc.smallData()
+        //hide loading gif
+            
+        })
+    }
 }
 
 

@@ -15,12 +15,4 @@ this.getTrailElevation = (trailPolyline, sampNum) => {
     })
 }
 
-
-
-
-
-
-
-
-
 })
